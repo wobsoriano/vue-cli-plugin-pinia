@@ -41,7 +41,11 @@ module.exports = (api, options = {}, rootOptions = {}) => {
       const lines = contentMain.split(/\r?\n/g).reverse()
 
       // inject import
-      let piniaLines = `\n\nVue.use(VueCompositionAPI)\nVue.use(PiniaPlugin)\nconst pinia = createPinia()`
+      let piniaLines = `\n\nVue.use(PiniaPlugin)\nconst pinia = createPinia()`
+      if (!api.hasPlugin('@vue/composition-api')) {
+        piniaLines += `\nVue.use(VueCompositionAPI)`
+      }
+
       const lastImportIndex = lines.findIndex(line => line.match(/^import/))
       lines[lastImportIndex] += piniaLines
 

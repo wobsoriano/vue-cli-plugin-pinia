@@ -1,5 +1,5 @@
 module.exports = (api, options = {}, rootOptions = {}) => {
-  api.injectImports(api.entryFile, `import store from './store'`)
+  api.injectImports(api.entryFile, `import { createPinia } from 'pinia'`)
 
   if (rootOptions.vueVersion === '3') {
     api.transformScript(api.entryFile, require('./injectUseStore'))
@@ -11,14 +11,12 @@ module.exports = (api, options = {}, rootOptions = {}) => {
     api.render('./template-vue3', {})
   } else {
     api.injectRootOptions(api.entryFile, `store`)
-
     api.extendPackage({
       dependencies: {
         pinia: 'latest',
         '@vue/composition-api': '^1.1.0'
       }
     })
-
     api.render('./template', {})
   }
 

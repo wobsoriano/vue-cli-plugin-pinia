@@ -1,0 +1,27 @@
+{
+  "name": "vue-cli-plugin-pinia",
+  "version": "0.0.1",
+  "description": "Pinia plugin for vue-cli",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wobsoriano/vue-cli-plugin-pinia"
+  },
+  "keywords": [
+    "vue",
+    "cli",
+    "pinia"
+  ],
+  "author": "Robert Soriano",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wobsoriano/vue-cli-plugin-pinia/issues"
+  },
+  "homepage": "https://github.com/wobsoriano/vue-cli-plugin-pinia#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@vue/cli-service": "^3.0.0 || ^4.0.0-0"
+  }
+}

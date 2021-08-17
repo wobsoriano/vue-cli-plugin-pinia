@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wobsoriano/vue-cli-plugin-pinia"
+    "url": "git+https://github.com/wobsoriano/vue-cli-plugin-pinia.git"
   },
   "keywords": [
     "vue",

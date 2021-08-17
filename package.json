@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-plugin-pinia",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Pinia plugin for vue-cli",
   "main": "index.js",
   "repository": {

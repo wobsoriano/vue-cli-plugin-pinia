@@ -13,11 +13,17 @@ module.exports = (api, options = {}, rootOptions = {}) => {
   } else {
     api.injectImports(api.entryFile, `import { createPinia, PiniaPlugin } from 'pinia'`)
     api.injectRootOptions(api.entryFile, `pinia`)
+    const dependencies = {
+      pinia: '^0.5.4'
+    }
+
+    if (!api.hasPlugin('@vue/composition-api')) {
+      dependencies['@vue/composition-api'] = '^1.1.0'
+      api.injectImports(api.entryFile, `import VueCompositionAPI from '@vue/composition-api'`)
+    }
+
     api.extendPackage({
-      dependencies: {
-        pinia: '^0.5.4',
-        '@vue/composition-api': '^1.1.0'
-      }
+      dependencies
     })
   }
 
@@ -35,7 +41,7 @@ module.exports = (api, options = {}, rootOptions = {}) => {
       const lines = contentMain.split(/\r?\n/g).reverse()
 
       // inject import
-      let piniaLines = `\n\nVue.use(PiniaPlugin)\nconst pinia = createPinia()`
+      let piniaLines = `\n\nVue.use(VueCompositionAPI)\nVue.use(PiniaPlugin)\nconst pinia = createPinia()`
       const lastImportIndex = lines.findIndex(line => line.match(/^import/))
       lines[lastImportIndex] += piniaLines
 

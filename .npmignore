@@ -1,0 +1,5 @@
+__tests__
+__mocks__
+.eslintrc
+.prettierrc
+.vscode

@@ -2,18 +2,18 @@
   "name": "vue-cli-plugin-pinia",
   "version": "0.0.6",
   "description": "Pinia plugin for vue-cli",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wobsoriano/vue-cli-plugin-pinia.git"
-  },
   "keywords": [
     "vue",
     "cli",
     "pinia"
   ],
-  "author": "Robert Soriano",
   "license": "MIT",
+  "author": "Robert Soriano",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wobsoriano/vue-cli-plugin-pinia.git"
+  },
+  "main": "index.js",
   "bugs": {
     "url": "https://github.com/wobsoriano/vue-cli-plugin-pinia/issues"
   },
@@ -22,6 +22,10 @@
     "access": "public"
   },
   "peerDependencies": {
-    "@vue/cli-service": "^3.0.0 || ^4.0.0-0"
+    "@vue/cli-service": "^3.0.0 || ^4.0.0 || ^5.0.0-0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config-basic": "^0.18.9",
+    "eslint": "^8.12.0"
   }
 }

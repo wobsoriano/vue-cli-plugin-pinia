@@ -1,4 +1,4 @@
-module.exports = (api, options = {}, rootOptions = {}) => {
+module.exports = (api, _options = {}, rootOptions = {}) => {
   const isVue3 = (rootOptions.vueVersion === '3')
   const hasTypeScript = api.hasPlugin('typescript')
 

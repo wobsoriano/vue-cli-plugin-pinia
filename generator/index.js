@@ -7,7 +7,7 @@ module.exports = (api, _options = {}, rootOptions = {}) => {
     api.transformScript(api.entryFile, require('./injectUseStore'))
     api.extendPackage({
       dependencies: {
-        pinia: '^2.0.13',
+        pinia: '^2.0.14',
       },
     })
   }
@@ -15,11 +15,11 @@ module.exports = (api, _options = {}, rootOptions = {}) => {
     api.injectImports(api.entryFile, 'import { createPinia, PiniaVuePlugin } from \'pinia\'')
     api.injectRootOptions(api.entryFile, 'pinia')
     const dependencies = {
-      pinia: '^2.0.13',
+      pinia: '^2.0.14',
     }
 
     if (!api.hasPlugin('@vue/composition-api')) {
-      dependencies['@vue/composition-api'] = '^1.4.9'
+      dependencies['@vue/composition-api'] = '^1.6.2'
       api.injectImports(api.entryFile, 'import VueCompositionAPI from \'@vue/composition-api\'')
     }
 

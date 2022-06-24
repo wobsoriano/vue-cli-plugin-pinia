@@ -1,6 +1,6 @@
 # vue-cli-plugin-pinia
 
-🍍 pinia plugin for vue-cli
+🍍 [Pinia](https://pinia.vuejs.org/) plugin for vue-cli
 
 ## Usage
 

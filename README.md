@@ -1,9 +1,13 @@
 # vue-cli-plugin-pinia
 
-> pinia plugin for vue-cli
+🍍 pinia plugin for vue-cli
 
-## Installing in an Already Created Project
+## Usage
 
 ``` sh
 vue add vue-cli-plugin-pinia
 ```
+
+## License
+
+MIT

@@ -1,3 +1,6 @@
+const piniaVersion = '^2.0.17'
+const compositionApiVersion = '^1.7.0'
+
 module.exports = (api, _options = {}, rootOptions = {}) => {
   const isVue3 = (rootOptions.vueVersion === '3')
   const hasTypeScript = api.hasPlugin('typescript')
@@ -7,7 +10,7 @@ module.exports = (api, _options = {}, rootOptions = {}) => {
     api.transformScript(api.entryFile, require('./injectUseStore'))
     api.extendPackage({
       dependencies: {
-        pinia: '^2.0.14',
+        pinia: piniaVersion,
       },
     })
   }
@@ -15,11 +18,11 @@ module.exports = (api, _options = {}, rootOptions = {}) => {
     api.injectImports(api.entryFile, 'import { createPinia, PiniaVuePlugin } from \'pinia\'')
     api.injectRootOptions(api.entryFile, 'pinia')
     const dependencies = {
-      pinia: '^2.0.14',
+      pinia: piniaVersion,
     }
 
     if (!api.hasPlugin('@vue/composition-api')) {
-      dependencies['@vue/composition-api'] = '^1.6.2'
+      dependencies['@vue/composition-api'] = compositionApiVersion
       api.injectImports(api.entryFile, 'import VueCompositionAPI from \'@vue/composition-api\'')
     }
 

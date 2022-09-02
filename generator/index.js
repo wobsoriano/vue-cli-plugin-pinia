@@ -1,4 +1,4 @@
-const piniaVersion = '^2.0.17'
+const piniaVersion = '^2.0.21'
 const compositionApiVersion = '^1.7.0'
 
 module.exports = (api, _options = {}, rootOptions = {}) => {

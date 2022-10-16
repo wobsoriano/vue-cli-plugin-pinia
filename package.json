@@ -23,7 +23,7 @@
   },
   "scripts": {
     "test": "jest __tests__/generator.spec.js",
-    "release": "bumpp --commit --push --tag && pnpm publish"
+    "release": "bumpp --commit --push --tag && npm publish"
   },
   "peerDependencies": {
     "@vue/cli-service": "^3.0.0 || ^4.0.0 || ^5.0.0-0"

@@ -1,5 +1,5 @@
 const piniaVersion = '^2.0.23'
-const compositionApiVersion = '^1.7.0'
+const compositionApiVersion = '^1.7.1'
 
 module.exports = (api, _options = {}, rootOptions = {}) => {
   const isVue3 = (rootOptions.vueVersion === '3')

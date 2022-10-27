@@ -5,9 +5,8 @@ function isNaruto(api) {
   const { semver } = require('@vue/cli-shared-utils')
   const deps = api.generator.pkg.dependencies
 
-  if (deps) {
-    const { vue } = deps
-    return semver.gte(semver.coerce(vue), '2.7.0')
+  if (deps && deps.vue) {
+    return semver.gte(semver.coerce(deps.vue), '2.7.0')
   }
 
   return false;

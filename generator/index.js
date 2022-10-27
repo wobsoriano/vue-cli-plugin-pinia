@@ -36,6 +36,7 @@ module.exports = async (api, _options = {}, rootOptions = {}) => {
     if (!api.hasPlugin('@vue/composition-api') && !isNaruto(api)) {
       dependencies['@vue/composition-api'] = compositionApiVersion
       api.injectImports(api.entryFile, 'import VueCompositionAPI from \'@vue/composition-api\'')
+      api.exitLog(`Installed @vue/composition-api ${compositionApiVersion}`)
     }
 
     api.extendPackage({

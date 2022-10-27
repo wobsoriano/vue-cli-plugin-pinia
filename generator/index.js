@@ -1,11 +1,24 @@
 const piniaVersion = '^2.0.23'
 const compositionApiVersion = '^1.7.1'
 
-module.exports = (api, _options = {}, rootOptions = {}) => {
+function isNaruto(api) {
+  const { semver } = require('@vue/cli-shared-utils')
+  const deps = api.generator.pkg.dependencies
+
+  if (deps) {
+    const { vue } = deps
+    return semver.gte(semver.coerce(vue), '2.7.0')
+  }
+
+  return false;
+}
+
+module.exports = async (api, _options = {}, rootOptions = {}) => {
   const isVue3 = (rootOptions.vueVersion === '3')
+  const isVue2 = (rootOptions.vueVersion === '2')
   const hasTypeScript = api.hasPlugin('typescript')
 
-  if (rootOptions.vueVersion === '3') {
+  if (isVue3) {
     api.injectImports(api.entryFile, 'import { createPinia } from \'pinia\'')
     api.transformScript(api.entryFile, require('./injectUseStore'))
     api.extendPackage({
@@ -21,7 +34,7 @@ module.exports = (api, _options = {}, rootOptions = {}) => {
       pinia: piniaVersion,
     }
 
-    if (!api.hasPlugin('@vue/composition-api')) {
+    if (!api.hasPlugin('@vue/composition-api') && !isNaruto(api)) {
       dependencies['@vue/composition-api'] = compositionApiVersion
       api.injectImports(api.entryFile, 'import VueCompositionAPI from \'@vue/composition-api\'')
     }
@@ -33,7 +46,10 @@ module.exports = (api, _options = {}, rootOptions = {}) => {
 
   api.render('./template', {})
 
-  if (!isVue3) {
+  api.exitLog(`Installed pinia ${piniaVersion}`)
+  api.exitLog('Documentation available at https://pinia.vuejs.org')
+
+  if (isVue2) {
     api.onCreateComplete(() => {
       // inject to main.js
       const fs = require('fs')
@@ -46,7 +62,7 @@ module.exports = (api, _options = {}, rootOptions = {}) => {
 
       // inject import
       let piniaLines = '\n\nVue.use(PiniaVuePlugin)\nconst pinia = createPinia()'
-      if (!api.hasPlugin('@vue/composition-api'))
+      if (!api.hasPlugin('@vue/composition-api') && !isNaruto(api))
         piniaLines += '\nVue.use(VueCompositionAPI)'
 
       const lastImportIndex = lines.findIndex(line => line.match(/^import/))

@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 const generateWithPlugin = require('@vue/cli-test-utils/generateWithPlugin')
 
-test('base', async() => {
+test('base', async () => {
   const { files, pkg } = await generateWithPlugin({
     id: 'pinia',
     apply: require('../generator'),

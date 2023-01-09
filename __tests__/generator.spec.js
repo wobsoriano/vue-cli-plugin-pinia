@@ -15,7 +15,7 @@ test('base', async () => {
   expect(pkg.dependencies.pinia).toMatch('^2')
 })
 
-test('use with Vue 3', async() => {
+test('use with Vue 3', async () => {
   const { files, pkg } = await generateWithPlugin([
     {
       id: '@vue/cli-service',

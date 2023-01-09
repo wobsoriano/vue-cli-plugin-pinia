@@ -46,7 +46,7 @@ module.exports = async (api, _options = {}, rootOptions = {}) => {
   api.render('./template', {})
 
   api.exitLog(`Installed pinia ${piniaVersion}`)
-  api.exitLog('Documentation available at https://pinia.vuejs.org')
+  api.exitLog('Documentation available at pinia.vuejs.org. For new projects, please use github.com/vuejs/create-vue to scaffold Vite-based projects.')
 
   if (isVue2) {
     api.onCreateComplete(() => {

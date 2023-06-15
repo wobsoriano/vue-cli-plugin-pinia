@@ -1,4 +1,4 @@
-const piniaVersion = '^2.0.28'
+const piniaVersion = '^2.1.4'
 const compositionApiVersion = '^1.7.1'
 
 function isNaruto(api) {

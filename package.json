@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-plugin-pinia",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Pinia plugin for vue-cli",
   "author": "Robert Soriano",
   "license": "MIT",
